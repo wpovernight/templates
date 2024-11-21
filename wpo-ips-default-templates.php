@@ -12,7 +12,7 @@
  */
 
 function wpo_ips_default_templates_extension_path( $template_paths ) {
-	$template_paths[] = untrailingslashit( plugin_dir_path( __FILE__ ) ) . '/';
+	$template_paths['extension'] = untrailingslashit( plugin_dir_path( __FILE__ ) ) . '/';
 	return $template_paths;
 }
 add_filter( 'wpo_wcpdf_template_paths', 'wpo_ips_default_templates_extension_path', 10, 1 );
