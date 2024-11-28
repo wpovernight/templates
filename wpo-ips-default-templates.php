@@ -14,12 +14,17 @@
 
 const WPO_IPS_DEFAULT_TEMPLATES_VERSION = '1.0.2';
 
+$plugin_path           = plugin_dir_path( __FILE__ );
+$plugin_directory_name = basename( $plugin_path );
+$github_updater_file   = $plugin_path . 'GitHubUpdater.php';
+
 // Load the updater
-require 'GitHubUpdater.php';
-$gitHubUpdater = new \WPO\GitHubUpdater\GitHubUpdater( 'templates/wpo-ips-default-templates.php' );
-$gitHubUpdater->setChangelog( 'CHANGELOG.md' );
-$gitHubUpdater->enableDebugger();
-$gitHubUpdater->add();
+if ( file_exists( $github_updater_file ) ) {
+	require_once $github_updater_file;
+	$gitHubUpdater = new \WPO\GitHubUpdater\GitHubUpdater( $plugin_directory_name . '/wpo-ips-default-templates.php' );
+	$gitHubUpdater->setChangelog( 'CHANGELOG.md' );
+	$gitHubUpdater->add();
+}
 
 // Add the template path
 function wpo_ips_default_templates_extension_path( $template_paths ) {
