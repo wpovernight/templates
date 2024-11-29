@@ -2,7 +2,7 @@
 
 ### v1.0.2
 
-- Adds Github updater class
+- Introduces the main plugin class and a function to retrieve its instance
 
 ### v1.0.1
 
