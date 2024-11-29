@@ -28,6 +28,13 @@ if ( ! class_exists( 'WPO_IPS_Default_Templates' ) ) :
 		
 		/**
 		 * Main instance
+		 *
+		 * @var WPO_IPS_Default_Templates
+		 */
+		protected static $_instance = null;
+		
+		/**
+		 * Main instance
 		 */
 		public static function instance() {
 			if ( is_null( self::$_instance ) ) {
