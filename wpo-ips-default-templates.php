@@ -61,7 +61,6 @@ if ( ! class_exists( 'WPO_IPS_Default_Templates' ) ) :
 			return $template_paths;
 		}
 	}
-	
 
 endif;
 
